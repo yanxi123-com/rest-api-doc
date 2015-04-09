@@ -1,0 +1,40 @@
+@import "loading";
+
+body {
+  padding-top: 75px;
+}
+
+a {
+  cursor: pointer;
+}
+
+.apiGroups {
+  margin-bottom: 40px;
+}
+
+.apiGroup {
+  margin: 20px 0;
+}
+
+.group-title {
+  border-bottom: 2px dashed #BBB;
+  padding-bottom: 10px;
+}
+
+.api-title {
+  margin-top: 40px;
+  border-bottom: 2px dashed #BBB;
+  padding-bottom: 10px;
+}
+
+pre span.label {
+  display: inline-block;
+  margin: 2px;
+  padding: 2px 4px;
+  background-color: #999;
+  font-weight: normal;
+}
+
+.api-tab {
+  margin: 20px 20px 10px 30px;
+}

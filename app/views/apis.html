@@ -1,0 +1,72 @@
+<h2>{{ apis.name }}</h2>
+
+<p><span class="label label-primary">{{group.title}}</span></p>
+
+<p>{{apis.description}}</p>
+
+<div ng-if="apis.baseUrl">
+    <p>
+        <strong>baseUrl:</strong>
+    </p>
+
+    <p>
+        <input type="text" ng-model="apis.baseUrl" class="form-control"/>
+    </p>
+</div>
+
+<p><strong>API List</strong></p>
+<ul>
+    <li ng-repeat="api in apis.apis">
+        <a ng-click="scrollToApi($index)">{{api.title}}</a> <code>{{api.url}}</code>
+    </li>
+</ul>
+
+<div ng-repeat="api in apis.apis" class="apiGroup" id="api-{{$index}}">
+
+    <h4 class="api-title">{{api.title}}</h4>
+
+    <p ng-if="api.description">{{api.description}}</p>
+
+    <ul class="prop-list">
+        <li>
+            <p><strong>URL</strong></p>
+
+            <p>{{apis.baseUrl}}{{api.url}}</p>
+        </li>
+        <li>
+            <p><strong>Method</strong></p>
+
+            <p>{{api.method}}</p>
+        </li>
+    </ul>
+    <!--<tabset class="api-tab">-->
+        <!--<tab heading="定义"></tab>-->
+        <!--<tab heading="实例"></tab>-->
+    <!--</tabset>-->
+    <ul class="prop-list">
+        <li ng-if="api.headers">
+            <p><strong>Headers</strong></p>
+            <pre ng-bind-html="api.headers | stringify"></pre>
+        </li>
+        <li ng-if="api.body">
+            <p><strong>Body</strong></p>
+            <pre ng-bind-html="api.body | stringify"></pre>
+        </li>
+        <li ng-if="api.query">
+            <p><strong>Query</strong></p>
+            <pre ng-bind-html="api.query | stringify"></pre>
+        </li>
+        <li>
+            <p><strong>Success Response</strong></p>
+            <pre ng-bind-html="api.successResponse | stringify"></pre>
+        </li>
+        <li>
+            <p><strong>Error Response</strong></p>
+            <pre ng-bind-html="api.errorResponse | stringify"></pre>
+        </li>
+        <li ng-if="api.successExample">
+            <p><strong>Success response example</strong></p>
+            <pre>{{api.successExample | json}}</pre>
+        </li>
+    </ul>
+</div>

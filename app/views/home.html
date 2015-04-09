@@ -1,0 +1,8 @@
+<div ng-repeat="group in apiGroups" class="apiGroups">
+    <h3 class="group-title">{{group.title}}</h3>
+
+    <div ng-repeat="apis in group.apisList" class="apiGroup">
+        <h4><a ui-sref="apis({name: group.name, index: $index})">{{apis.name}}</a></h4>
+        <p>{{apis.description}}</p>
+    </div>
+</div>
