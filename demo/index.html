@@ -1,0 +1,80 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title ng-bind="pageTitle"></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link href="//libs.baidu.com/fontawesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//libs.baidu.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/main-1504121642.css">
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="home">
+                Rest api doc Home
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li dropdown ng-repeat="group in apiGroups" class="dropdown">
+                    <a dropdown-toggle>
+                        <span ng-bind="group.title"></span>
+                        <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li ng-repeat="apis in group.apisList">
+                            <a ui-sref="apis({name: group.name, index: $index})">{{apis.name}}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a ng-click="scrollToTop()"><i class="fa fa-chevron-circle-up"></i> To Top</a></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div ui-view>
+
+        <div>
+            <div class="spinner">
+                <div class="spinner-container container1">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container2">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container3">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/main-1504121642.js"></script>
+</body>
+</html>
