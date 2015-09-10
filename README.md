@@ -1,28 +1,22 @@
 rest-api-doc
-=====================================
+====
 
 ### Put you API in api directory:
 [put your apis here](./api)
 
 ### install
 ```
-npm install
-npm install -g gulp
+npm install -g rest-api-doc
 ```
 
-### Run dev
+### Generate Rest Api Doc
 ```
-gulp dev
-```
-
-### deploy dev
-```
-gulp deploy-dev
+rest-api-doc [options]
 ```
 
-### Run production
+### See help
 ```
-gulp prod
+rest-api-doc -h
 ```
 
 ## api doc structure

@@ -4,9 +4,10 @@ var gulp = require('gulp');
 var program = require('commander');
 
 var config = require('../gulp/config');
+var packageInfo = require('../package');
 
 program
-    .version('0.0.1')
+    .version(packageInfo.version)
     .option('-s, --source', 'directory which the api defined in')
     .option('-t, --target', 'dirrectory which the api doc created in')
     .option('-d, --development', 'development mode')
