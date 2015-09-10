@@ -29,7 +29,7 @@ function buildScript(file) {
         fullPaths: true
     }, watchify.args);
 
-    if (!global.isProd) {
+    if (!config.isProd()) {
         bundler = watchify(bundler);
         bundler.on('update', function () {
             rebundle();
@@ -39,14 +39,14 @@ function buildScript(file) {
     bundler.transform(ngAnnotate);
     bundler.transform(coffeeify);
     bundler.transform(envify({
-        BUILD_DIR: global.buildDir
+        API_GROUPS: config.getApiGroups()
     }));
     bundler.transform('brfs');
     bundler.transform('bulkify');
 
     function rebundle() {
         var stream = bundler.bundle();
-        var createSourcemap = global.isProd && config.browserify.sourcemap;
+        var createSourcemap = config.isProd() && config.browserify.sourcemap;
 
         gutil.log('Rebundle...');
 
@@ -54,7 +54,7 @@ function buildScript(file) {
             .pipe(source(file))
             .pipe(gulpif(createSourcemap, buffer()))
             .pipe(gulpif(createSourcemap, sourcemaps.init()))
-            .pipe(gulpif(global.isProd, streamify(uglify({
+            .pipe(gulpif(config.isProd(), streamify(uglify({
                 compress: {drop_console: true}
             }))))
             .pipe(gulpif(createSourcemap, sourcemaps.write('./')))
@@ -68,8 +68,8 @@ function buildScript(file) {
 
 gulp.task('browserify', function () {
 
-    if (global.isProd) {
-        return buildScript("main-" + global.buildTime + ".js");
+    if (config.isProd()) {
+        return buildScript("main-" + config.buildTime + ".js");
     }
     return buildScript('main.js');
 });

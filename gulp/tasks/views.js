@@ -12,9 +12,9 @@ gulp.task('views', function () {
 
     // Put our index.html in the dist folder
     gulp.src('app/index.html')
-        .pipe(gulpif(global.isProd, htmlreplace({
-            css: 'css/main-' + global.buildTime + '.css',
-            js: 'js/main-' + global.buildTime + '.js'
+        .pipe(gulpif(config.isProd(), htmlreplace({
+            css: 'css/main-' + config.buildTime + '.css',
+            js: 'js/main-' + config.buildTime + '.js'
         })))
         .pipe(gulp.dest(config.dist.root()));
 

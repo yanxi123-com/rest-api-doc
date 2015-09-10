@@ -1,10 +1,11 @@
 'use strict';
 
 var notify = require('gulp-notify');
+var config = require('../config');
 
 module.exports = function(error) {
 
-  if( !global.isProd ) {
+  if( !config.isProd() ) {
 
     var args = Array.prototype.slice.call(arguments);
 

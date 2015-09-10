@@ -1,6 +1,6 @@
 'use strict';
-var apiGroups = require('api-groups');
 
+var apiGroups = require(process.env.API_GROUPS);
 var controllersModule = require('./_index');
 
 /**

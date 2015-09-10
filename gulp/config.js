@@ -1,14 +1,32 @@
 'use strict';
 
+var _ = require('lodash');
 var path = require('path');
+var moment = require('moment');
+
+var options = {};
 
 function buildPath() {
     var arg = 1 <= arguments.length ? [].slice.call(arguments, 0) : [];
 
-    return path.join.apply(path, ['build', global.buildDir].concat(arg));
+    return path.join.apply(path, [process.cwd(), options.target].concat(arg));
 }
 
 module.exports = {
+
+    setOpts: function (opts) {
+        _.extend(options, opts);
+    },
+
+    getApiGroups: function () {
+        return path.join(process.cwd(), options.source, 'index.coffee');
+    },
+
+    isProd: function () {
+        return options.isProd;
+    },
+
+    buildTime: moment().format('YYMMDDHHmm'),
 
     'serverport': 3200,
 

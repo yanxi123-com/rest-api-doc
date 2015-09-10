@@ -14,18 +14,17 @@ gulp.task('styles', function () {
 
     return gulp.src(config.styles.src)
         .pipe(sass({
-            sourceComments: global.isProd ? 'none' : 'map',
+            sourceComments: config.isProd() ? 'none' : 'map',
             sourceMap: 'sass',
-            outputStyle: global.isProd ? 'compressed' : 'nested'
+            outputStyle: config.isProd() ? 'compressed' : 'nested'
         }))
         .pipe(autoprefixer("last 2 versions", "> 1%", "ie 8"))
         .on('error', handleErrors)
-        .pipe(gulpif(global.isProd, rename(function (path) {
+        .pipe(gulpif(config.isProd(), rename(function (path) {
             path.dirname += "";
-            path.basename += "-" + global.buildTime;
+            path.basename += "-" + config.buildTime;
             path.extname += '';
         })))
         .pipe(gulp.dest(config.styles.dest()))
         .pipe(gulpif(browserSync.active, browserSync.reload({stream: true})));
-
 });

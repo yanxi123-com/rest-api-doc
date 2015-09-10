@@ -1,8 +1,7 @@
 'use strict';
 
-var apiGroups = require('api-groups');
-
 var controllersModule = require('./_index');
+var apiGroups = require(process.env.API_GROUPS);
 
 /**
  * @ngInject
@@ -22,7 +21,7 @@ function ApisCtrl($scope, $stateParams, $anchorScroll, $location, $timeout, $roo
             }
         });
 
-        $timeout(function() {
+        $timeout(function () {
             $anchorScroll();
         });
     });

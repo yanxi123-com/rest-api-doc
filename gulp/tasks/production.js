@@ -6,10 +6,6 @@ var runSequence = require('run-sequence');
 gulp.task('prod', function(cb) {
 
   cb = cb || function() {};
-
-  global.buildDir = 'production';
-  global.isProd = true;
-
-  runSequence('clean', ['styles', 'images', 'views', 'browserify'], cb);
+  runSequence('clean', ['styles', 'views', 'browserify'], cb);
 
 });
