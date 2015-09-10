@@ -1,5 +1,4 @@
-_ = require 'lodash'
-type = require 'data-type'
+type = require process.env.DATA_TYPE
 
 errorStructure =
   error: type String, 'UserNotFound; LoginFailed; Forbidden'

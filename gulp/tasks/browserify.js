@@ -15,6 +15,7 @@ var browserSync = require('browser-sync');
 var ngAnnotate = require('browserify-ngannotate');
 var envify = require('envify/custom');
 var coffeeify    = require('coffeeify');
+var path = require('path');
 
 var handleErrors = require('../util/handleErrors');
 
@@ -39,7 +40,9 @@ function buildScript(file) {
     bundler.transform(ngAnnotate);
     bundler.transform(coffeeify);
     bundler.transform(envify({
-        API_GROUPS: config.getApiGroups()
+        API_GROUPS: config.getApiGroups(),
+        TEMPLATES: path.join(config.views.dest(), 'templates.js'),
+        DATA_TYPE: path.join(__dirname, '../../app/coffee/data-type.coffee')
     }));
     bundler.transform('brfs');
     bundler.transform('bulkify');

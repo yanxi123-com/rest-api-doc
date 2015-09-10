@@ -22,7 +22,7 @@ config.setOpts({
 require('../gulp');
 
 if (program.development) {
-    gulp.start('dev');
+    gulp.start('watch');
 } else {
     gulp.start('prod');
 }

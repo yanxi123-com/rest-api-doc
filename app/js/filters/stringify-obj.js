@@ -1,5 +1,5 @@
 'use strict';
-var type = require('data-type');
+var type = require(process.env.DATA_TYPE);
 
 function isObject(val) {
     return val === Object(val);

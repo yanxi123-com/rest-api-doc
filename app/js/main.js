@@ -5,7 +5,7 @@ var angular = require('angular');
 // angular modules
 require('angular-ui-router');
 require('angular-bootstrap');
-require('./templates');
+require(process.env.TEMPLATES);
 require('./controllers/_index');
 require('./services/_index');
 require('./directives/_index');

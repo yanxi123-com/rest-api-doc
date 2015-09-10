@@ -30,8 +30,7 @@
   },
   "browser": {
     "angular": "./node_modules/angular/angular.js",
-    "data-type": "./app/coffee/data-type.coffee",
-    "api-groups": "./api/index.coffee"
+    "data-type": "./app/coffee/data-type.coffee"
   },
   "browserify-shim": {
     "angular": "angular"

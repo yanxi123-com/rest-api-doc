@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var gulpif = require('gulp-if');
 var templateCache = require('gulp-angular-templatecache');
 var htmlreplace = require('gulp-html-replace');
+var path = require('path');
 
 var config = require('../config');
 
@@ -11,7 +12,7 @@ var config = require('../config');
 gulp.task('views', function () {
 
     // Put our index.html in the dist folder
-    gulp.src('app/index.html')
+    gulp.src(path.join(__dirname, '../../app/index.html'))
         .pipe(gulpif(config.isProd(), htmlreplace({
             css: 'css/main-' + config.buildTime + '.css',
             js: 'js/main-' + config.buildTime + '.js'
@@ -23,6 +24,6 @@ gulp.task('views', function () {
         .pipe(templateCache({
             standalone: true
         }))
-        .pipe(gulp.dest(config.views.dest));
+        .pipe(gulp.dest(config.views.dest()));
 
 });

@@ -1,6 +1,7 @@
 'use strict';
 
-var type = require('data-type');
+var type = require(process.env.DATA_TYPE);
+
 var filtersModule = require('./_index.js');
 
 /**

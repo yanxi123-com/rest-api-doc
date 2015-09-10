@@ -1,8 +1,8 @@
 'use strict';
 
 var _ = require('lodash');
-var path = require('path');
 var moment = require('moment');
+var path = require('path');
 
 var options = {};
 
@@ -31,39 +31,28 @@ module.exports = {
     'serverport': 3200,
 
     'styles': {
-        'src': 'app/styles/**/*.scss',
+        'src': path.join(__dirname, '../app/styles/**/*.scss'),
         'dest': function () {
             return buildPath('css');
         }
     },
 
     'scripts': {
-        'src': 'app/js/**/*.js',
+        'src': path.join(__dirname, '../app/js/**/*.js'),
         'dest': function () {
             return buildPath('js');
         }
     },
 
-    'images': {
-        'src': 'app/images/**/*',
-        'dest': function () {
-            return buildPath('images');
-        }
-    },
-
     'views': {
         'watch': [
-            'app/index.html',
-            'app/views/**/*.html'
+            path.join(__dirname, '../app/index.html'),
+            path.join(__dirname, '../app/views/**/*.html')
         ],
-        'src': 'app/views/**/*.html',
-        'dest': 'app/js'
-    },
-
-    'gzip': {
-        'src': 'build/**/*.{html,xml,json,css,js,js.map}',
-        'dest': buildPath,
-        'options': {}
+        'src': path.join(__dirname, '../app/views/**/*.html'),
+        'dest': function () {
+            return buildPath('js');
+        }
     },
 
     'dist': {
@@ -71,7 +60,7 @@ module.exports = {
     },
 
     'browserify': {
-        'entries': ['./app/js/main.js'],
+        'entries': [path.join(__dirname, '../app/js/main.js')],
         'bundleName': 'main.js',
         'sourcemap': false
     },
