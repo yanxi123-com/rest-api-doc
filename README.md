@@ -1,23 +1,30 @@
 rest-api-doc
 ====
 
-### Put you API in api directory:
-[put your apis here](./api)
-
-### install
+### Install
 ```
 npm install -g rest-api-doc
 ```
 
-### Generate Rest Api Doc
+### Run
 ```
 rest-api-doc [options]
 ```
 
-### See help
+### Get started
+```shell
+rest-api-doc --example  # generate api example
+cd example # go to the example dir
+rest-api-doc dev # generate rest api doc with dev mod
 ```
-rest-api-doc -h
-```
+
+### Options:
+
+    -h, --help         output usage information
+    -V, --version      output the version number
+    -s, --source       directory which the api defined in
+    -t, --target       directory which the api doc generated in
+    -d, --development  development mode
 
 ## api doc structure
 ```coffee

@@ -16,7 +16,8 @@
   "keywords": [
     "rest",
     "api",
-    "doc"
+    "doc",
+    "generator"
   ],
   "private": false,
   "engines": {
