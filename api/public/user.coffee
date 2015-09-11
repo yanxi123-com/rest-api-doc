@@ -1,5 +1,4 @@
-_ = require 'lodash'
-type = require 'data-type'
+type = require '../../app/coffee/data-type'
 
 errorStructure =
   error: type String, 'UserNotFound; LoginFailed; Forbidden'

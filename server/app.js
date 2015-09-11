@@ -28,4 +28,3 @@ s.on('error', function (err) {
 });
 
 s.listen(config.serverport);
-
